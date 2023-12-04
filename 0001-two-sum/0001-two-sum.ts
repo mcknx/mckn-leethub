@@ -1,17 +1,16 @@
 function twoSum(nums: number[], target: number): number[] {
-    const numIndices: Record<number, number>= {}
-
+    const numIndicesMap: Record<number, number> = {}
+    
     for (let i = 0; i < nums.length; i++) {
-        const currentNum = nums[i]
-        const complement = target - currentNum
-
-        if (numIndices.hasOwnProperty(complement)) {
-            return [numIndices[complement], i]
+        let currentNum = nums[i]
+        let complement = target - currentNum
+        
+        if (numIndicesMap.hasOwnProperty(complement)) {
+            return [numIndicesMap[complement], i]
         }
-
-        numIndices[currentNum] = i
+        
+        numIndicesMap[currentNum] = i
     }
-
-    // base case
-    return [];
+    
+    return []
 }
